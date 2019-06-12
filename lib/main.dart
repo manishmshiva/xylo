@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audio_cache.dart';
 
 void main() => runApp(Xylo());
 
@@ -8,7 +9,7 @@ class Xylo extends StatelessWidget{
     return MaterialApp(
       title: "Xylo",
       home: HomeApp()
-    );   
+    );
   }
 }
 
@@ -24,7 +25,9 @@ class _HomeAppState extends State<HomeApp>{
       child: FlatButton(
         color: color,
         onPressed: (){
-          print("Pressed $i");
+          final player = AudioCache();
+          player.play('note$i.wav');
+          print("Playing note...");
         },
       ),
     );
